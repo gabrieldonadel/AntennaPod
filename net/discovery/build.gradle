@@ -1,11 +1,15 @@
 plugins {
     id("com.android.library")
+    id 'org.jetbrains.kotlin.android'
 }
 apply from: "../../common.gradle"
 apply from: "../../playFlavor.gradle"
 
 android {
     namespace "de.danoeh.antennapod.net.discovery"
+    kotlinOptions {
+        jvmTarget = '17'
+    }
 
     defaultConfig {
         if (project.hasProperty("podcastindexApiKey")) {
@@ -23,6 +27,7 @@ dependencies {
     implementation project(':net:common')
     implementation project(':storage:preferences')
     implementation project(':ui:i18n')
+    implementation 'androidx.core:core-ktx:1.13.1'
 
     annotationProcessor "androidx.annotation:annotation:$annotationVersion"
 

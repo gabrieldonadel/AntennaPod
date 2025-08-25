@@ -1,11 +1,15 @@
 plugins {
     id("com.android.library")
+    id 'org.jetbrains.kotlin.android'
 }
 apply from: "../../../common.gradle"
 apply from: "../../../playFlavor.gradle"
 
 android {
     namespace "de.danoeh.antennapod.net.sync.service"
+    kotlinOptions {
+        jvmTarget = '17'
+    }
 }
 
 dependencies {
@@ -19,6 +23,7 @@ dependencies {
     implementation project(':ui:notifications')
     implementation project(':ui:i18n')
     implementation project(':net:download:service-interface')
+    implementation 'androidx.core:core-ktx:1.13.1'
 
     annotationProcessor "androidx.annotation:annotation:$annotationVersion"
     implementation "androidx.core:core:$coreVersion"

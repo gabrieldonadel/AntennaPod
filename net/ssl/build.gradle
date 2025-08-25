@@ -1,14 +1,19 @@
 plugins {
     id("com.android.library")
+    id 'org.jetbrains.kotlin.android'
 }
 apply from: "../../common.gradle"
 apply from: "../../playFlavor.gradle"
 
 android {
     namespace "de.danoeh.antennapod.net.ssl"
+    kotlinOptions {
+        jvmTarget = '17'
+    }
 }
 
 dependencies {
+    implementation 'androidx.core:core-ktx:1.13.1'
     annotationProcessor "androidx.annotation:annotation:$annotationVersion"
     implementation "androidx.appcompat:appcompat:$appcompatVersion"
 

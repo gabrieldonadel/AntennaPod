@@ -1,15 +1,20 @@
 plugins {
     id("com.android.library")
+    id 'org.jetbrains.kotlin.android'
 }
 apply from: "../../../common.gradle"
 
 android {
     namespace "de.danoeh.antennapod.net.sync.serviceinterface"
+    kotlinOptions {
+        jvmTarget = '17'
+    }
 }
 
 dependencies {
     implementation project(':model')
     implementation project(':storage:preferences')
+    implementation 'androidx.core:core-ktx:1.13.1'
 
     annotationProcessor "androidx.annotation:annotation:$annotationVersion"
     implementation "io.reactivex.rxjava3:rxandroid:$rxAndroidVersion"

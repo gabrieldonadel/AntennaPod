@@ -1,12 +1,16 @@
 plugins {
     id("com.android.library")
     id("java-test-fixtures")
+    id 'org.jetbrains.kotlin.android'
 }
 apply from: "../../../common.gradle"
 apply from: "../../../playFlavor.gradle"
 
 android {
     namespace "de.danoeh.antennapod.net.download.serviceinterface"
+    kotlinOptions {
+        jvmTarget = '17'
+    }
 
     lint {
         disable 'ParcelClassLoader'
@@ -17,6 +21,7 @@ dependencies {
     implementation project(':model')
     implementation project(':net:common')
     implementation project(':storage:preferences')
+    implementation 'androidx.core:core-ktx:1.13.1'
 
     annotationProcessor "androidx.annotation:annotation:$annotationVersion"
     implementation "org.apache.commons:commons-lang3:$commonslangVersion"

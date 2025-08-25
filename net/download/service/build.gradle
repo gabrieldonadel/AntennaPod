@@ -1,12 +1,16 @@
 plugins {
     id("com.android.library")
     id("java-test-fixtures")
+    id 'org.jetbrains.kotlin.android'
 }
 apply from: "../../../common.gradle"
 apply from: "../../../playFlavor.gradle"
 
 android {
     namespace "de.danoeh.antennapod.net.download.service"
+    kotlinOptions {
+        jvmTarget = '17'
+    }
 }
 
 dependencies {
@@ -23,6 +27,7 @@ dependencies {
     implementation project(':ui:app-start-intent')
     implementation project(':ui:chapters')
     implementation project(':ui:transcript')
+    implementation 'androidx.core:core-ktx:1.13.1'
 
     annotationProcessor "androidx.annotation:annotation:$annotationVersion"
     implementation "androidx.core:core:$coreVersion"
