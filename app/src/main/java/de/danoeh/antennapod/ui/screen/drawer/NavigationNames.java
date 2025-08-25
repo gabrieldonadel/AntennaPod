@@ -7,6 +7,7 @@ import de.danoeh.antennapod.ui.screen.AddFeedFragment;
 import de.danoeh.antennapod.ui.screen.AllEpisodesFragment;
 import de.danoeh.antennapod.ui.screen.InboxFragment;
 import de.danoeh.antennapod.ui.screen.PlaybackHistoryFragment;
+import de.danoeh.antennapod.ui.screen.ReactFragment;
 import de.danoeh.antennapod.ui.screen.download.CompletedDownloadsFragment;
 import de.danoeh.antennapod.ui.screen.home.HomeFragment;
 import de.danoeh.antennapod.ui.screen.queue.QueueFragment;
@@ -21,6 +22,8 @@ public abstract class NavigationNames {
                 return R.drawable.ic_playlist_play;
             case InboxFragment.TAG:
                 return R.drawable.ic_inbox;
+            case ReactFragment.TAG:
+                return R.drawable.ic_add; // Using add icon for now, you can change this
             case AllEpisodesFragment.TAG:
                 return R.drawable.ic_feed;
             case CompletedDownloadsFragment.TAG:
@@ -44,6 +47,8 @@ public abstract class NavigationNames {
                 return R.string.queue_label;
             case InboxFragment.TAG:
                 return R.string.inbox_label;
+            case ReactFragment.TAG:
+                return R.string.react_label;
             case AllEpisodesFragment.TAG:
                 return R.string.episodes_label;
             case SubscriptionFragment.TAG:
@@ -69,6 +74,8 @@ public abstract class NavigationNames {
                 return R.string.queue_label_short;
             case InboxFragment.TAG:
                 return R.string.inbox_label_short;
+            case ReactFragment.TAG:
+                return R.string.react_label_short;
             case AllEpisodesFragment.TAG:
                 return R.string.episodes_label_short;
             case SubscriptionFragment.TAG:
@@ -92,6 +99,8 @@ public abstract class NavigationNames {
                 return R.id.bottom_navigation_queue;
             case InboxFragment.TAG:
                 return R.id.bottom_navigation_inbox;
+            case ReactFragment.TAG:
+                return R.id.bottom_navigation_react;
             case AllEpisodesFragment.TAG:
                 return R.id.bottom_navigation_episodes;
             case CompletedDownloadsFragment.TAG:
@@ -113,6 +122,8 @@ public abstract class NavigationNames {
             return QueueFragment.TAG;
         } else if (id == R.id.bottom_navigation_inbox) {
             return InboxFragment.TAG;
+        } else if (id == R.id.bottom_navigation_react) {
+            return ReactFragment.TAG;
         } else if (id == R.id.bottom_navigation_episodes) {
             return AllEpisodesFragment.TAG;
         } else if (id == R.id.bottom_navigation_downloads) {

@@ -4,6 +4,7 @@
         <item>HomeFragment</item>
         <item>QueueFragment</item>
         <item>NewEpisodesFragment</item>
+        <item>ReactFragment</item>
         <item>SubscriptionFragment</item>
         <item>EpisodesFragment</item>
         <item>DownloadsFragment</item>

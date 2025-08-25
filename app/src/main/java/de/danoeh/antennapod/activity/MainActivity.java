@@ -62,6 +62,7 @@ import de.danoeh.antennapod.ui.screen.AddFeedFragment;
 import de.danoeh.antennapod.ui.screen.AllEpisodesFragment;
 import de.danoeh.antennapod.ui.screen.InboxFragment;
 import de.danoeh.antennapod.ui.screen.PlaybackHistoryFragment;
+import de.danoeh.antennapod.ui.screen.ReactFragment;
 import de.danoeh.antennapod.ui.screen.SearchFragment;
 import de.danoeh.antennapod.ui.screen.download.CompletedDownloadsFragment;
 import de.danoeh.antennapod.ui.screen.download.DownloadLogFragment;
@@ -411,6 +412,9 @@ public class MainActivity extends CastEnabledActivity {
                 break;
             case InboxFragment.TAG:
                 fragment = new InboxFragment();
+                break;
+            case ReactFragment.TAG:
+                fragment = new ReactFragment();
                 break;
             case AllEpisodesFragment.TAG:
                 fragment = new AllEpisodesFragment();
@@ -777,7 +781,7 @@ public class MainActivity extends CastEnabledActivity {
                 break;
         }
     }
-  
+
     //Hardware keyboard support
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
