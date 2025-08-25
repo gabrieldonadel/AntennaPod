@@ -1,7 +1,6 @@
-plugins {
-    id('com.android.application')
-    id('com.github.triplet.play') version '3.9.0' apply false
-}
+apply plugin: "com.android.application"
+apply plugin: "com.facebook.react"
+
 apply from: "../common.gradle"
 apply from: "../playFlavor.gradle"
 apply plugin: 'org.jetbrains.kotlin.android'
@@ -138,6 +137,31 @@ dependencies {
     androidTestImplementation "androidx.test:runner:$runnerVersion"
     androidTestImplementation "androidx.test:rules:$rulesVersion"
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+
+    implementation("com.facebook.react:react-android")
+    implementation("com.facebook.react:hermes-android")
+}
+
+def projectRoot = new File(rootDir.getAbsoluteFile(), 'exp').getAbsolutePath()
+react {
+    entryFile = file(["node", "-e", "require('expo/scripts/resolveAppEntry')", projectRoot, "android", "absolute"].execute(null, rootDir).text.trim())
+    reactNativeDir = new File(["node", "--print", "require.resolve('react-native/package.json')"].execute(null, rootDir).text.trim()).getParentFile().getAbsoluteFile()
+    hermesCommand = new File(["node", "--print", "require.resolve('react-native/package.json')"].execute(null, rootDir).text.trim()).getParentFile().getAbsolutePath() + "/sdks/hermesc/%OS-BIN%/hermesc"
+    codegenDir = new File(["node", "--print", "require.resolve('@react-native/codegen/package.json', { paths: [require.resolve('react-native/package.json')] })"].execute(null, rootDir).text.trim()).getParentFile().getAbsoluteFile()
+    enableBundleCompression = false
+
+    // Use Expo CLI to bundle the app, this ensures the Metro config works correctly with Expo projects.
+    cliFile = new File(["node", "--print", "require.resolve('@expo/cli', { paths: [require.resolve('expo/package.json')] })"].execute(null, rootDir).text.trim())
+    bundleCommand = "export:embed"
+
+    /* Variants */
+    //   The list of variants to that are debuggable. For those we're going to
+    //   skip the bundling of the JS bundle and the assets. By default is just 'debug'.
+    //   If you add flavors like lite, prod, etc. you'll have to list your debuggableVariants.
+    debuggableVariants = ["freeDebug", "playDebug"]
+
+    /* Autolinking */
+    autolinkLibrariesWithApp()
 }
 
 if (project.hasProperty("antennaPodPlayPublisherCredentials")) {

@@ -4,6 +4,7 @@ buildscript {
         kotlin_version = '1.9.22'
     }
     dependencies {
+        classpath("com.facebook.react:react-native-gradle-plugin")
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
     repositories {
@@ -67,3 +68,6 @@ tasks.register('checkstyle', Checkstyle) {
     exclude("**/build/**")
     exclude("**/generated/**")
 }
+
+apply plugin: "expo-root-project"
+apply plugin: "com.facebook.react.rootproject"
