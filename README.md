@@ -1,3 +1,29 @@
+# AntennaPod + React Native
+
+This is an experimental fork of the original [AntennaPod app](https://github.com/AntennaPod/AntennaPod) with the sole purpose of testing brownfield support for Expo and React Native in large native-first codebases. Its commits serve as a reference for anyone interested in integrating React Native into an existing Android app, especially those that don't want to refactor the whole project structure to accommodate React Native.
+
+## Integration steps
+
+Check commits for detailed steps
+
+1. **Set up a yarn monorepo**: Create a `package.json` file in the root directory, then add the following to it:
+
+   ```json
+   {
+     "private": true,
+     "workspaces": ["exp"]
+   }
+   ```
+
+2. **Create the Expo app**: Run `npx create-expo-app exp` to set up a new Expo app.
+
+3. **Install dependencies**: Add expo to you Gradle files and run `./gradlew build`.
+
+4. **Add React Native view**: Create a new ReactActivity, for example `MyReactActivity.kt`, and implement a basic React Native view.
+
+<details>
+<summary>AntennaPod</summary>
+
 # AntennaPod
 
 [![GitHub check runs](https://img.shields.io/github/check-runs/AntennaPod/AntennaPod/develop)](https://github.com/AntennaPod/AntennaPod/actions/workflows/checks.yml?query=branch%3Adevelop)
@@ -18,8 +44,8 @@ This is the official repository of AntennaPod, the easy-to-use, flexible and ope
 
 <img src="https://raw.githubusercontent.com/AntennaPod/StoreMetadata/main/listings/en-US/graphics/phone-screenshots/00.png" alt="Screenshot 0" height="200"> <img src="https://raw.githubusercontent.com/AntennaPod/StoreMetadata/main/listings/en-US/graphics/phone-screenshots/01.png" alt="Screenshot 1" height="200"> <img src="https://raw.githubusercontent.com/AntennaPod/StoreMetadata/main/listings/en-US/graphics/phone-screenshots/02.png" alt="Screenshot 2" height="200"> <img src="https://raw.githubusercontent.com/AntennaPod/StoreMetadata/main/listings/en-US/graphics/phone-screenshots/03.png" alt="Screenshot 3" height="200"> <img src="https://raw.githubusercontent.com/AntennaPod/StoreMetadata/main/listings/en-US/graphics/phone-screenshots/04.png" alt="Screenshot 4" height="200"> <img src="https://raw.githubusercontent.com/AntennaPod/StoreMetadata/main/listings/en-US/graphics/phone-screenshots/05.png" alt="Screenshot 5" height="200">
 
-
 ## Feedback
+
 You can use the [AntennaPod Forum](https://forum.antennapod.org/) for discussions about the app or just podcasting in general.
 
 Bug reports and feature requests can be submitted [here](https://github.com/AntennaPod/AntennaPod/issues) (please read the [instructions](https://github.com/AntennaPod/AntennaPod/blob/develop/CONTRIBUTING.md) on how to report a bug and how to submit a feature request first!).
@@ -27,6 +53,7 @@ Bug reports and feature requests can be submitted [here](https://github.com/Ante
 We also hold regular community calls to discuss anything AntennaPod-related. [Come join the next call](https://forum.antennapod.org/t/monthly-community-call/1869)!
 
 ## Help to test AntennaPod
+
 AntennaPod has many users and we don't want them to run into trouble when we add a new feature. It's important that we have a significant group test our app, so that we know all possible combinations of phones, Android versions and use cases work as expected. Check out our wiki on how to join our [Beta testing program](https://antennapod.org/documentation/general/beta)! If a bug is reported during the beta period, chances are high that it will be fixed before the stable version. If it is reported later, fixing might take another full beta cycle. So definitely let us know if something is not right.
 
 ## License
@@ -37,8 +64,8 @@ AntennaPod is licensed under the GNU General Public License (GPL-3.0). You can f
 
 If you want to translate AntennaPod into another language, you can visit our [Weblate page](https://hosted.weblate.org/projects/antennapod/).
 
-
 ## Building AntennaPod
 
 You can build AntennaPod just like any other Android project. Refer to the [instructions](https://github.com/AntennaPod/AntennaPod/blob/develop/CONTRIBUTING.md) for more details.
 
+</details>
